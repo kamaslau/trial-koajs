@@ -2,10 +2,14 @@
   "name": "trial-koajs",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "^18 || >=18"
+  },
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "NODE_ENV=development node ."
+    "start": "node ."
   },
   "keywords": [],
   "author": "Kamas Lau<kamaslau@dingtalk.com>",

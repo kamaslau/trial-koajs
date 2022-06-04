@@ -1,6 +1,5 @@
-const Koa = require('koa');
-const dotenv = require('dotenv')
-dotenv.config()
+import Koa from 'koa'
+import 'dotenv/config'
 
 const app = new Koa();
 
@@ -12,7 +11,6 @@ app.use(async (ctx, next) => {
 });
 
 // x-response-time
-
 app.use(async (ctx, next) => {
   const start = Date.now();
   await next();
@@ -21,7 +19,6 @@ app.use(async (ctx, next) => {
 });
 
 // response
-
 app.use(async ctx => {
   const result = await fetch(
     process.env.API_URL ?? ''
@@ -29,7 +26,8 @@ app.use(async ctx => {
   .then(res => res.json())
   .catch(error => {
     console.error(error)
-    return null
+
+    return '请求异常'
   })
   console.log('result: ', result)
 
